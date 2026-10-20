@@ -1,0 +1,45 @@
+#atlas-mount{min-width:0}
+.character-controls{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.character-control-group{display:flex;flex-wrap:wrap;gap:6px}
+.character-overlay-toggle{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}
+.character-overlay-toggle input{accent-color:var(--green);width:16px;height:16px}
+.character-stage{min-height:360px;display:flex;align-items:center;justify-content:center;padding:20px;background-color:#111c23;background-image:linear-gradient(45deg,#182831 25%,transparent 25%),linear-gradient(-45deg,#182831 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#182831 75%),linear-gradient(-45deg,transparent 75%,#182831 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0}
+.character-pixel-stack{position:relative;height:330px;max-width:100%;display:flex;justify-content:center;align-items:center}
+.character-base,.character-muscles{height:100%;width:auto;max-width:100%;object-fit:contain;image-rendering:pixelated}
+.character-muscles{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.character-caption{font:9px var(--pixel-font);color:var(--green);text-align:center;line-height:1.8}
+.character-note{font-size:12px;color:var(--muted);line-height:1.6}
+@media(max-width:650px){.character-stage{min-height:280px;padding:12px}.character-pixel-stack{height:260px}.character-controls{align-items:flex-start;flex-direction:column}}
+
+/* V1.9 — mejora del espacio de estudio */
+.character-stage{
+  min-height:0;height:clamp(280px,48vh,520px);padding:12px;overflow:hidden;
+  background-color:#111c23;
+  background-image:linear-gradient(45deg,#182831 25%,transparent 25%),linear-gradient(-45deg,#182831 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#182831 75%),linear-gradient(-45deg,transparent 75%,#182831 75%);
+  background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0
+}
+.character-pixel-stack{height:100%;max-height:100%;width:100%;min-width:0}
+.character-base,.character-muscles{max-height:100%;object-fit:contain}
+.character-controls{position:sticky;top:0;z-index:8;background:var(--panel);padding:8px 0;margin:0 0 8px;border-bottom:1px solid var(--line)}
+.wood-mannequin{width:min(75%,330px);height:min(72%,360px);object-fit:contain;image-rendering:pixelated;filter:drop-shadow(5px 5px 0 #080d11)}
+.atlas-section{height:calc(100vh - 34px);min-height:650px;max-height:980px;display:flex;flex-direction:column;overflow:hidden;padding:18px}
+.atlas-section .workspace-header{flex:0 0 auto}
+.atlas-section .atlas-intro{flex:0 0 auto;margin:8px 0 12px;line-height:1.15}
+.atlas-section .atlas-view-controls{position:sticky;top:0;z-index:10;flex:0 0 auto;display:flex;gap:8px;flex-wrap:wrap;padding:7px 0 10px;background:var(--panel);border-bottom:1px solid var(--line)}
+.atlas-section .atlas-layout{flex:1 1 auto;min-height:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(250px,.8fr);gap:14px;margin-top:12px}
+.atlas-section #atlas-mount{min-height:0;overflow:auto;padding-right:4px}
+.atlas-section .atlas-info{min-height:0;overflow:auto;padding:16px;border:1px solid var(--line);background:#101a21}
+.atlas-section .atlas-disclaimer{flex:0 0 auto;margin:8px 0 0;font-size:16px;line-height:1.1}
+.atlas-section .character-stage{height:clamp(250px,43vh,440px)}
+.atlas-section .character-note{margin-bottom:6px}
+.atlas-section .character-caption{margin:8px 0}
+.atlas-section .character-controls .pixel-button{padding:9px 11px}
+.atlas-section .atlas-loading{padding:30px}
+@media(max-width:760px){
+ .atlas-section{height:auto;min-height:calc(100vh - 20px);max-height:none;overflow:visible}
+ .atlas-section .atlas-layout{grid-template-columns:1fr;overflow:visible}
+ .atlas-section #atlas-mount,.atlas-section .atlas-info{overflow:visible}
+ .atlas-section .character-stage{height:42vh;min-height:260px}
+ .atlas-section .atlas-view-controls{position:sticky;top:0}
+ .wood-mannequin{width:min(78%,290px);height:300px}
+}
